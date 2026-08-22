@@ -16,7 +16,7 @@ const links = [
   { name: "GitHub", url: "https://github.com" },
   { name: "YouTube", url: "https://www.youtube.com" },
   { name: "Facebook", url: "https://www.facebook.com" },
-  { name: "note", url: "https://www.note.com" },
+  { name: "note", url: "https://note.com" },
   { name: "Threads", url: "https://www.threads.com" },
   { name: "email", url: "mailto:your-email@example.com" }
 ];
@@ -51,11 +51,9 @@ const links = [
     <h2>Links</h2>
     <ul>
       {links.map((link) => (
-        <li>
           <a href={link.url} target="_blank" rel="noopener noreferrer">
             {link.name}
           </a>
-        </li>
         {' '}
       ))}
     </ul>
