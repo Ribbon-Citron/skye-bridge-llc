@@ -1,11 +1,61 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// -------------------------------------------------------------
+// 【フロントマター】ここでは将来の拡張を見据えてデータを定義します
+// -------------------------------------------------------------
+import { Image } from 'astro:assets';
+import myAvatar from '../assets/my-avatar.jpg'; // あなたの写真をインポート
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const pageTitle = "私の自己紹介ページ";
+const name = "あなたの名前 / ニックネーム";
+const description = "ここに簡単な自己紹介の短文を記入します。将来テキストが増えても、この部分を書き換えるか、下にタグを追加するだけでOKです。";
+
+// SNSやリンクのデータをまとめた配列（追加・削除が簡単です）
+const links = [
+  { name: "X (旧Twitter)", url: "https://x.com" },
+  { name: "Instagram", url: "https://instagram.com" },
+  { name: "GitHub", url: "https://github.com" },
+  { name: "note", url: "https://note.com" },
+  { name: "お問い合わせ", url: "mailto:your-email@example.com" }
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pageTitle}</title>
+</head>
+<body>
+
+  <main>
+    <!-- 1. 写真（Astroが自動でWebP等に最適化・軽量化してくれます） -->
+    <Image 
+      src={myAvatar} 
+      alt={name} 
+      width={300} 
+      height={300} 
+    />
+
+    <!-- 2. 名前と短文 -->
+    <h1>{name}</h1>
+    <p>{description}</p>
+
+    <hr />
+
+    <!-- 3. SNSなどのリンク（5点のリンクをループ処理で出力） -->
+    <h2>Links</h2>
+    <ul>
+      {links.map((link) => (
+        <li>
+          <a href={link.url} target="_blank" rel="noopener noreferrer">
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+
+</body>
+</html>
+
