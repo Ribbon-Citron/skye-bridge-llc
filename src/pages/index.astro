@@ -51,11 +51,13 @@ const links = [
     <h2>Links</h2>
     <ul>
       {links.map((link) => (
+        <>
           <a href={link.url} target="_blank" rel="noopener noreferrer">
             {link.name}
           </a>
         {' '}
-      ))}
+        </>
+     ))}
     </ul>
 
 <br />
