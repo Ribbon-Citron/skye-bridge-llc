@@ -7,15 +7,16 @@ import myAvatar from '../assets/my-avatar.jpg'; // あなたの写真をイン�
 
 const pageTitle = "私の自己紹介ページ";
 const name = "あなたの名前 / ニックネーム";
-const description = "ここに簡単な自己紹介の短文を記入します。将来テキストが増えても、この部分を書き換えるか、下にタグを追加するだけでOKです。";
+const description = "ここに簡単な自己紹介の短文を記入します。将来テキストが増えてもこの部分を書き換えるか、下にタグを追加するだけでOKです。";
 
 // SNSやリンクのデータをまとめた配列（追加・削除が簡単です）
 const links = [
-  { name: "X (旧Twitter)", url: "https://x.com" },
+  { name: "X", url: "https://x.com" },
   { name: "Instagram", url: "https://instagram.com" },
   { name: "GitHub", url: "https://github.com" },
+  { name: "YouTube", url: "https://.com" },
   { name: "note", url: "https://note.com" },
-  { name: "お問い合わせ", url: "mailto:your-email@example.com" }
+  { name: "email", url: "mailto:your-email@example.com" }
 ];
 ---
 
@@ -54,6 +55,16 @@ const links = [
         </li>
       ))}
     </ul>
+
+
+    <!-- 4. テスト -->
+    <h2>Test</h2>
+    <ul> 
+      <li>てすと1</li>
+      <li>テスト2</li>
+      <li>Test3</li>
+    </ul>
+
   </main>
 
 </body>
