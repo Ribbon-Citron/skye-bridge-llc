@@ -14,7 +14,7 @@
 
 		<!-- 2. フッタークレジット（ここに追加しました） -->
 		<footer class="site-credit">
-			<span>Built with</span>
+			<span>Built </span>
 			<div class="credit-links">
 				<!-- Astro -->
 				<a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="item astro">
@@ -46,9 +46,21 @@
 		height: 100%;
 		display: flex;
 		flex-direction: column;
+		/* ▽ 初期状態（ライトモード）の背景と文字色 */
+		background-color: #ffffff;
+		color: #111111;
+		transition: background-color 0.3s, color 0.3s; /* 滑らかに切り替える */
 	}
 
-	/* クレジット全体のスタイル（標準：ライトモード） */
+	/* 
+	  【追加】ボタンが押されて「dark」クラスがついた時の背景と文字色 
+	*/
+	:global(.dark) body {
+		background-color: #111111;
+		color: #eeeeee;
+	}
+
+	/* クレジット全体のスタイル */
 	.site-credit {
 		margin-top: auto;
 		display: flex;
@@ -74,17 +86,13 @@
 	.cf:hover { color: #f38020; }
 	.github:hover { color: #111111; }
 
-	/* 
-	  Astroテーマでよくある「ライト/ダーク切り替えスイッチ」の
-	  すべてのパターン（.darkクラス、data属性、システム設定）に連動する短いCSS
-	*/
+	/* ボタンが押された時 ＆ システム設定がダークの時のクレジットの色調整 */
 	:global(.dark) .site-credit, :global(.dark) .item,
-	:global([data-theme="dark"]) .site-credit, :global([data-theme="dark"]) .item,
 	@media (prefers-color-scheme: dark) {
-		:root:not(:global(.light)):not(:global([data-theme="light"])) .site-credit,
-		:root:not(:global(.light)):not(:global([data-theme="light"])) .item { color: #999; }
-		:root:not(:global(.light)):not(:global([data-theme="light"])) .sep { color: #444; }
-		:root:not(:global(.light)):not(:global([data-theme="light"])) .github:hover { color: #ffffff; }
+		:root:not(:global(.light)) .site-credit,
+		:root:not(:global(.light)) .item { color: #999; }
+		:root:not(:global(.light)) .sep { color: #444; }
+		:root:not(:global(.light)) .github:hover { color: #ffffff; }
 	}
 </style>
 
