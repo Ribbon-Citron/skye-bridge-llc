@@ -87,3 +87,16 @@
 		:root:not(:global(.light)):not(:global([data-theme="light"])) .github:hover { color: #ffffff; }
 	}
 </style>
+
+<button 
+  onclick="document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light')" 
+  style="cursor:pointer; padding:6px 10px; border-radius:6px; border:1px solid #ccc; background:transparent; color:inherit; font-size:14px;"
+>
+  🌓 Mode
+</button>
+
+<script is:inline>
+  // ページ読み込み時に前回の設定（またはOSの設定）を反映する超軽量スクリプト
+  const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (theme === 'dark') document.documentElement.classList.add('dark');
+</script>
