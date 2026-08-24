@@ -129,6 +129,8 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
 </body>
 </html>
 
+
+
 <!-- index.astro の末尾に追加 -->
 <style is:global>
   /* 基本（ライトモード）の設定 */
@@ -199,4 +201,50 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
   html.dark .social-icon.threads:hover,
   html.dark .social-icon.x:hover { color: #ffffff; }
 
+
+---
+// フロントマター（JavaScript/TypeScript）
+import { Image } from 'astro:assets';
+...
+---
+
+<!-- HTML構造 -->
+<main>
+  ...
+</main>
+
+<style>
+  /* 既存のCSSスタイルがここに入っています */
+
+  /* ↓ ここから下に追記・配置します ↓ */
+
+  /* 基本設定（PC・共通） */
+  .avatar-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  /* スマホ向け設定（画面幅が 600px 以下のとき） */
+  @media (max-width: 600px) {
+    .avatar-img {
+      max-width: 140px; /* スマホ用にサイズ変更 */
+    }
+
+    .social-links {
+      gap: 14px; /* アイコン間隔の調整 */
+    }
+
+    main {
+      padding: 0 16px; /* スマホ画面端の余白調整 */
+    }
+  }
 </style>
+
+
+
+
+</style>
+
+
+
