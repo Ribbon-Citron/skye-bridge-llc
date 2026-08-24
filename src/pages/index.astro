@@ -10,7 +10,7 @@ import Footer from '../layouts/Layout.astro';
 const pageTitle = "WATERISLAND Technologies";
 const name = "WATERISLAND Technologies";
 const description = "Digital Life Support: A private tech & lifestyle concierge for clients";
-const links = [ // SNS・連絡先データ（アイコンのみ表示用）
+const links = [
   { 
     name: "Instagram", 
     url: "https://www.instagram.com", 
@@ -66,14 +66,12 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
   <main>
     <center>
       <br />
-     <!-- <hr /> -->
       
-      <!-- 1. 写真 -->
+      <!-- 1. アバター写真（class="avatar-img" を追加） -->
       <Image 
         src={myAvatar} 
         alt={name} 
-        width={200} 
-        height={200} 
+        class="avatar-img"
       />
 
       <!-- 2. 名前と短文 -->
@@ -82,45 +80,38 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
 
       <br />
     
-      <!-- 3. ビジネス -->
-     <Image 
-      src={business} 
-      alt={name} 
-      style={{ width: '40%', height: 'auto' }}
+      <!-- 3. ビジネス画像（class="business-img" を追加し、直書きstyleを削除） -->
+      <Image 
+        src={business} 
+        alt={name} 
+        class="business-img"
       />
       <br />
-        <!-- Tech: <br />
-        Web Services / PC & Smartphone Support / Networking<br /><br />
-        Design: <br />
-        Electronic Documents & CAD Drafting<br /><br />
-        Engineering: <br />
-        Electrical Work / Appliance Repair<br /><br />
-        Planning: Casual Financial Planning (FP)<br /> -->
 
       <br />
       <hr />
       <br />
 
-<!-- Links（テキストを削除し、アイコンのみで表示） -->
-    <div class="social-links">
-      {links.map((link) => (
-        <a 
-          href={link.url} 
-          target={link.url.startsWith('http') ? "_blank" : "_self"} 
-          rel="noopener noreferrer" 
-          class={`social-icon ${link.name.toLowerCase()}`}
-          title={link.name}
-          aria-label={link.name}
-        >
-          <svg viewBox="0 0 24 24" class="icon" set:html={link.icon} />
-        </a>
-      ))}
-    </div>
-      
+      <!-- Links（SNSアイコン一覧） -->
+      <div class="social-links">
+        {links.map((link) => (
+          <a 
+            href={link.url} 
+            target={link.url.startsWith('http') ? "_blank" : "_self"} 
+            rel="noopener noreferrer" 
+            class={`social-icon ${link.name.toLowerCase()}`}
+            title={link.name}
+            aria-label={link.name}
+          >
+            <svg viewBox="0 0 24 24" class="icon" set:html={link.icon} />
+          </a>
+        ))}
+      </div>
+        
       <br />
       <hr />
 
-      <!-- ★Footerコンポーネントを呼び出し（フッターとMode切り替えボタンがここに表示されます） -->
+      <!-- Footerコンポーネント -->
       <Footer />
 
     </center>
@@ -129,9 +120,6 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
 </body>
 </html>
 
-
-
-<!-- index.astro の末尾に追加 -->
 <style is:global>
   /* 基本（ライトモード）の設定 */
   body {
@@ -157,13 +145,30 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
     border-color: #333333;
   }
 
-/* Linksアイコン専用スタイル（32px） */
+  /* -------------------------------------------------- */
+  /* 画像のスタイル指定（PC・共通） */
+  /* -------------------------------------------------- */
+  .avatar-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .business-img {
+    width: 100%;
+    max-width: 500px; /* PCでの表示サイズ */
+    height: auto;
+  }
+
+  /* -------------------------------------------------- */
+  /* Linksアイコン専用スタイル */
+  /* -------------------------------------------------- */
   .social-links {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* アイコン間の余白 */
+    gap: 8px;
     margin: 20px 0;
   }
 
@@ -176,7 +181,6 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
     transition: all 0.2s ease;
   }
 
-  /* サイズをフッター（16px）の約2倍である 30px に設定 */
   .social-icon .icon {
     width: 32px;
     height: 32px;
@@ -186,7 +190,7 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
     transform: translateY(-2px);
   }
 
-  /* --- 各ブランドのホバー時カラー --- */
+  /* 各ブランドのホバー時カラー */
   .social-icon.instagram:hover { color: #e4405f; }
   .social-icon.facebook:hover { color: #1877f2; }
   .social-icon.threads:hover { color: #000000; }
@@ -201,34 +205,24 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
   html.dark .social-icon.threads:hover,
   html.dark .social-icon.x:hover { color: #ffffff; }
 
-
----
-// フロントマター（JavaScript/TypeScript）
-import { Image } from 'astro:assets';
-...
----
-  /* 基本設定（PC・共通） */
-  .avatar-img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-  }
-
+  /* -------------------------------------------------- */
   /* スマホ向け設定（画面幅が 600px 以下のとき） */
+  /* -------------------------------------------------- */
   @media (max-width: 600px) {
     .avatar-img {
-      max-width: 80px; /* スマホ用にサイズ変更 */
+      max-width: 120px; /* スマホ時のアバターサイズ */
+    }
+
+    .business-img {
+      max-width: 85%; /* スマホ時のビジネス画像サイズ */
     }
 
     .social-links {
-      gap: 14px; /* アイコン間隔の調整 */
+      gap: 14px; /* アイコン同士の間隔 */
     }
 
     main {
-      padding: 0 16px; /* スマホ画面端の余白調整 */
+      padding: 0 16px; /* 画面左右の余白 */
     }
   }
 </style>
-
-
-
