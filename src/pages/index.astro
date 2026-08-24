@@ -88,3 +88,30 @@ const links = [
 
 </body>
 </html>
+
+<!-- index.astro の末尾に追加 -->
+<style is:global>
+  /* 基本（ライトモード）の設定 */
+  body {
+    background-color: #ffffff;
+    color: #222222;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    font-family: system-ui, sans-serif;
+  }
+  a {
+    color: #0066cc;
+  }
+
+  /* htmlに .dark クラスが付いた時の設定（ダークモード） */
+  html.dark body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  html.dark a {
+    color: #66b2ff;
+  }
+  html.dark hr {
+    border-color: #333333;
+  }
+</style>
