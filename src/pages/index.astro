@@ -3,11 +3,10 @@
 // 【フロントマター】
 // -------------------------------------------------------------
 import { Image } from 'astro:assets';
-import myAvatar from '../assets/business1.jpg';
-//import myAvatar from '../assets/my-avatar.jpg';
+import myAvatar from '../assets/my-avatar.jpg';
 import Footer from '../layouts/Layout.astro'; 
 
-const pageTitle = "Water Islandz Technologies";
+const pageTitle = "WATERISLAND Technologies";
 const name = "Water Islandz Technologies";
 const description = "Digital Life Support: A private tech & lifestyle concierge for clients";
 const links = [ // SNS・連絡先データ（アイコンのみ表示用）
@@ -84,11 +83,15 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
       <br />
     
       <!-- 3. ビジネス -->
-      <h2>Business</h2>
+
       <ul> 
-        Tech: Web Services / PC & Smartphone Support / Networking<br />
-        Design: Electronic Documents & CAD Drafting<br />
-        Engineering: Electrical Work / Appliance Repair<br />
+        <Image src="../assets/business1.jpg">
+        Tech: <br />
+        Web Services / PC & Smartphone Support / Networking<br />
+        Design: <br />
+        Electronic Documents & CAD Drafting<br />
+        Engineering: <br />
+        Electrical Work / Appliance Repair<br />
         Planning: Casual Financial Planning (FP)<br />
       </ul>
 
@@ -97,7 +100,6 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
       <br />
 
 <!-- Links（テキストを削除し、アイコンのみで表示） -->
-    <h2>Links</h2>
     <div class="social-links">
       {links.map((link) => (
         <a 
