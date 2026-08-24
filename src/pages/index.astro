@@ -4,6 +4,7 @@
 // -------------------------------------------------------------
 import { Image } from 'astro:assets';
 import myAvatar from '../assets/my-avatar.jpg';
+import business from '../assets/business1.jpg';
 import Footer from '../layouts/Layout.astro'; 
 
 const pageTitle = "WATERISLAND Technologies";
@@ -83,9 +84,12 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
       <br />
     
       <!-- 3. ビジネス -->
-
-      <ul> 
-        <Image src="../assets/business1.jpg">
+     <Image 
+      src={business} 
+      alt={name} 
+      style={{ width: '30%', height: 'auto' }}
+      />
+      <br />
         Tech: <br />
         Web Services / PC & Smartphone Support / Networking<br />
         Design: <br />
@@ -93,7 +97,6 @@ const links = [ // SNS・連絡先データ（アイコンのみ表示用）
         Engineering: <br />
         Electrical Work / Appliance Repair<br />
         Planning: Casual Financial Planning (FP)<br />
-      </ul>
 
       <br />
       <hr />
