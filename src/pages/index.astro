@@ -11,7 +11,7 @@ import Footer from '../layouts/Layout.astro';
 const pageTitle = "WATERiSLAND Technologies";
 const name = "WATERiSLAND Technologies";
 const description = "Digital Life Support: A private tech & lifestyle concierge for clients";
-const whatisnew = "国内外の旅行をしながらこれからの暮らしを模索中。終の棲家を地域や契約形態にこだわらず探し始めた。";
+const whatisnew = "国内外の旅行をしながらこれからの暮らしを模索中・終の棲家を地域や契約形態にこだわらず探し始めたところ";
 const links = [
   { 
     name: "Instagram", 
@@ -107,7 +107,8 @@ const links = [
           </a>
         ))}
       </div>
-
+      <br />
+      
       <!-- QRコード（class="QRcode-img" を追加） -->
       <Image 
         src={QRcode} 
@@ -134,7 +135,7 @@ const links = [
 <style is:global>
   /* 基本（ライトモード）の設定 */
   body {
-    background-color: #e8f0ee;
+    background-color: #f0f0f3;
     color: #222222;
     transition: background-color 0.3s ease, color 0.3s ease;
     margin: 0;
@@ -146,7 +147,7 @@ const links = [
 
   /* htmlに .dark クラスが付いた時の設定（ダークモード） */
   html.dark body {
-    background-color: #04021a;
+    background-color: #01000c00;
     color: #e0e0e0;
   }
   html.dark a {
