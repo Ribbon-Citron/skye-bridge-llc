@@ -8,9 +8,10 @@ import business from '../assets/business3.png';
 import QRcode from '../assets/QRcode.png';
 import Footer from '../layouts/Layout.astro'; 
 
-const pageTitle = "WATERISLAND Technologies";
-const name = "WATERISLAND Technologies";
+const pageTitle = "WATERiSLAND Technologies";
+const name = "WATERiSLAND Technologies";
 const description = "Digital Life Support: A private tech & lifestyle concierge for clients";
+const whatisnew = "国内外の旅行をしながらこれからの暮らしを模索中。終の棲家を地域や契約形態にこだわらず探し始めた。";
 const links = [
   { 
     name: "Instagram", 
@@ -87,9 +88,7 @@ const links = [
         alt={name} 
         class="business-img"
       />
-      <br />
-
-      <br />
+      <br /><br />
       <hr />
       <br />
 
@@ -115,10 +114,11 @@ const links = [
         alt={name} 
         class="QRcode-img"
       />        
-      <br />
+      <br /><br />
+
+      <!-- 近況 -->
       What's New<br />
-      国内外の旅行をしながらこれからの暮らしを模索中。<br />
-      終の棲家は地域や契約形態にこだわらず探し始めたところ。<br />
+      <p>{whatisnew}</p>
       <br />
       <hr />
 
