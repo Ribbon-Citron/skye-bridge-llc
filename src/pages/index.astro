@@ -67,7 +67,6 @@ const links = [
 
   <main>
     <center>
-      <br />
 <!--       
       // 1. アバター写真（class="avatar-img" を追加）
       <Image 
@@ -77,7 +76,7 @@ const links = [
       /> -->
 
       <!-- 2. 名前と短文 -->
-      <h1>{name}</h1>
+      <h1 class="profile-name">{name}</h1>
       <p>{description}</p>
       <br />
     
@@ -138,7 +137,7 @@ const links = [
       <hr />
 
       <!-- Footerコンポーネント -->
-      <Footer />
+      <!-- <Footer /> -->
 
     </center>
   </main>
@@ -187,6 +186,10 @@ const links = [
     width: 100%;
     max-width: 300px; /* PCでの表示サイズ */
     height: auto;
+  }
+
+  .profile-name {
+    color: #2563eb; /* お好みの青色（#0000ff や #0066cc など） */
   }
 
   /* -------------------------------------------------- */
