@@ -10,7 +10,7 @@ import QRcode from '../assets/QRcode.png';
 
 const pageTitle = "SKYE-BRIDGE-LLC";
 const name = "SKYE-BRIDGE-LLC";
-const description = "自動車特定整備事業者 沖縄県自動車整備振興会";
+const description = "自動車特定整備事業者・沖縄県自動車整備振興会員";
 const whatisnew = "2026/08/25 弊社ウエブサイト構築中";
 const links = [
   { 
@@ -78,7 +78,7 @@ const links = [
 
       <!-- 2. 名前と短文 -->
       <h1 class="profile-name">{name}</h1>
-      <p>{description}</p>
+      <p class="profile-desc">{description}</p>
       <hr />
 
       <!-- 3. ビジネス画像（class="business-img" を追加し、直書きstyleを削除） -->
@@ -191,6 +191,11 @@ const links = [
 
   .profile-name {
     color: #2438ec; /* お好みの青色（#0000ff や #0066cc など） */
+  }
+
+  .profile-desc {
+    font-size: 0.875rem; /* 標準(1rem)より少し小さいサイズ（14px相当） */
+    /* さらに小さくしたい場合は 0.8rem や 0.75rem（12px相当）に調整してください */
   }
 
   /* -------------------------------------------------- */
