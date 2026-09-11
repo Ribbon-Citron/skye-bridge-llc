@@ -3,7 +3,7 @@
 // 【フロントマター】
 // -------------------------------------------------------------
 import { Image } from 'astro:assets';
-// import myAvatar from '../assets/skye-bridge-llc_2.jpg';
+import myAvatar from '../assets/skye-bridge-llc_2.jpg';
 import business from '../assets/car1.png';
 import rentalcar from '../assets/rentalcar_260911.jpg';
 import QRcode from '../assets/QRcode.png';
@@ -11,7 +11,6 @@ import QRcode from '../assets/QRcode.png';
 
 const pageTitle = "SKYE-BRIDGE-LLC";
 const name = "SKYE-BRIDGE-LLC";
-// const description = "自動車特定整備事業者・沖縄県自動車整備振興会員";
 const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
 
 // const links = [
@@ -74,20 +73,14 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
   <main>
     <center>
       <br />
-      <hr />
-      <!--       
       // 1. アバター写真（class="avatar-img" を追加）
       <Image 
         src={myAvatar} 
         alt={name} 
         class="avatar-img"
-      /> -->
-      
-      <!-- 2. 名前と短文 -->
-      <h1 class="profile-name">{name}</h1>
-      <!-- <p class="profile-desc">{description}</p> -->
+      />
 
-      自動車特定整備事業者・沖縄県自動車整備振興会員<br />
+      <br />
 
       <!-- 3. ビジネス画像（class="business-img" を追加し直書きstyleを削除） -->
       <Image 
@@ -107,7 +100,8 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
       <br />
       〒904-2225沖縄県うるま市字喜屋武6-3<br />
       📞098-989-5957<br />
-      🕙10:00〜19:00  ㊡日/月<br />
+      🕙10:00〜19:00  ㊡日/月<br /><br />
+      自動車特定整備事業者・沖縄県自動車整備振興会員<br />
       <br /><br />
       <hr />
       <br />
@@ -196,8 +190,8 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
   /* 画像のスタイル指定（PC・共通） */
   /* -------------------------------------------------- */
   .avatar-img {
-    width: 50%;
-    max-width: 100px;
+    width: 100%;
+    max-width: 600px;
     height: auto;
   }
 
@@ -215,7 +209,7 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
 
   .profile-name {
     color: #01020a; /* お好みの青色（#0000ff や #0066cc など） */
-    font-size: 2.5rem;
+    font-size: 2.0rem;
   }
 
   .profile-desc {
