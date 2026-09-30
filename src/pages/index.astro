@@ -290,5 +290,21 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
     }
   }
 
+  body {
+    /* 背景画像の設定 */
+    
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('../assets/skye-bridge-llc_L.jpg'); /* linear-gradient で黒の半透明（50%）を画像の上に重ねる */
+    background-size: cover;          /* 画面いっぱいに引き伸ばして収める */
+    background-position: center;     /* 中央寄せて表示 */
+    background-repeat: no-repeat;    /* 繰り返さない */
+    background-attachment: fixed;    /* スクロールしても背景を固定する */
+    
+    /* 文字が見づらくなるのを防ぐための全体カラー設定 */
+    color: #ffffff;                  
+    margin: 0;
+    min-height: 100vh;
+  }
 
 </style>
