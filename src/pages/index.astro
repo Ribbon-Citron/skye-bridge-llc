@@ -32,10 +32,17 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
 
   <main>
     <center>
-      <!-- クラス名を正しく付与 -->
+      <!-- モード切り替えボタン -->
+      <div class="theme-toggle-wrapper">
+        <button id="theme-toggle" type="button" aria-label="テーマ切り替え">
+          <span id="theme-toggle-text">🌙 ダークモード</span>
+        </button>
+      </div>
+
+      <!-- メインタイトル -->
       <span class="site-title">SKYE-BRIDGE-LLC</span><br />
       <span class="sub-title">自動車特定整備事業者・沖縄県自動車整備振興会員</span>
-      <br />
+      <br /><br />
 
       <!-- ビジネス画像 -->
       <Image 
@@ -43,7 +50,7 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
         alt={name} 
         class="business-img"
       /> 
-      <br />
+      <br /><br />
       【整備・点検】<br />
       法定点検や日常のオイル,消耗品の交換<br /><br />
       【修理】<br />
@@ -87,57 +94,99 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
     </center>
   </main>
 
+  <!-- ダークモード切り替えスクリプト -->
+  <script>
+    const button = document.getElementById('theme-toggle');
+    const toggleText = document.getElementById('theme-toggle-text');
+    
+    // OSの標準設定がダークモードか判定
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+      if (toggleText) toggleText.textContent = '☀️ ライトモード';
+    } else {
+      document.documentElement.classList.remove('dark');
+      if (toggleText) toggleText.textContent = '🌙 ダークモード';
+    }
+
+    button?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      if (toggleText) {
+        toggleText.textContent = isDark ? '☀️ ライトモード' : '🌙 ダークモード';
+      }
+    });
+  </script>
 </body>
 </html>
 
 <style is:global>
   /* -------------------------------------------------- */
-  /* 基本設定 (Body) */
+  /* 基本設定（ライトモード時） */
   /* -------------------------------------------------- */
   body {
-    /* 背景画像設定（public/skye-bridge-llc_L.jpg に配置されている前提） */
-    background-image: 
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/skye-bridge-llc_L.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #f0f0f3; /* 画像がない場合のフォールバック */
-    
-    color: #ffffff; /* 基本の文字色 */
+    background-color: #f8f9fa; /* 明るく視認性の良い背景色 */
+    color: #212529;             /* 読みやすい濃いテキスト色 */
     margin: 0;
+    padding: 20px 0;
     min-height: 100vh;
     font-family: system-ui, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   a {
-    color: #1f74cf;
+    color: #0d6efd;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #dee2e6;
+    margin: 20px 0;
   }
 
   /* -------------------------------------------------- */
-  /* タイトル・テキストスタイル */
+  /* タイトル・テキストスタイル（ライトモード） */
   /* -------------------------------------------------- */
-  /* タイトル（スマホ向け：小さめ） */
   .site-title {
     font-size: 1.4rem;
-    color: #ffffff; /* 暗い背景で見えやすいよう白（または明るい色）に変更 */
+    color: #080350; /* 濃い紺色でしっかり読めるように変更 */
     font-family: 'Dela Gothic One', sans-serif;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
   }
 
-  /* サブタイトル */
   .sub-title {
     font-size: 0.80rem;
-    color: #d3caca;
+    color: #555555;
   }
 
-  /* PC向けタイトル設定（画面幅601px以上） */
+  /* PC向けタイトル設定 */
   @media (min-width: 601px) {
     .site-title {
-      font-size: 2.4rem;
+      font-size: 3.4rem;
     }
+  }
+
+  /* -------------------------------------------------- */
+  /* 切り替えボタンのスタイル */
+  /* -------------------------------------------------- */
+  .theme-toggle-wrapper {
+    margin-bottom: 15px;
+  }
+
+  #theme-toggle {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #cccccc;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+  }
+
+  #theme-toggle:hover {
+    background-color: #e2e8f0;
   }
 
   /* -------------------------------------------------- */
@@ -167,14 +216,10 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
     height: auto;
   }
 
-  /* スマホ向け設定（画面幅600px以下） */
+  /* スマホ向け余白設定 */
   @media (max-width: 600px) {
-    .avatar-img {
-      max-width: 400px;
-    }
-
     .business-img {
-      max-width: 70%;
+      max-width: 80%;
     }
 
     .rentalcar-img {
@@ -183,21 +228,41 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
     }
     
     main {
-      padding: 0 10px;
+      padding: 0 12px;
     }
   }
 
   /* -------------------------------------------------- */
-  /* ダークモード対応 */
+  /* ダークモード時のスタイル設定 */
   /* -------------------------------------------------- */
   html.dark body {
-    background-color: #16010a;
-    color: #e0e0e0;
+    background-color: #121212; /* 目に優しい暗めの背景 */
+    color: #e0e0e0;             /* 明るいテキスト色 */
   }
+
+  html.dark .site-title {
+    color: #82aaff; /* 暗い背景で見えやすい明るい青色 */
+  }
+
+  html.dark .sub-title {
+    color: #aaaaaa;
+  }
+
   html.dark a {
     color: #66b2ff;
   }
+
   html.dark hr {
     border-color: #333333;
+  }
+
+  html.dark #theme-toggle {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #444444;
+  }
+
+  html.dark #theme-toggle:hover {
+    background-color: #3a3a3a;
   }
 </style>
