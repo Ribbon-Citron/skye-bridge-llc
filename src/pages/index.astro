@@ -176,12 +176,16 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
   /* -------------------------------------------------- */
   /* タイトル・テキストスタイル */
   /* -------------------------------------------------- */
-  .site-title {
-    font-size: 1.7rem;
-    color: #c70c0c;
-/*    font-family: 'Dela Gothic One', sans-serif; */
-      font-family: 'Zen Tokyo Zoo', sans-serif; 
-  }
+.site-title {
+  font-size: 1.7rem;
+  color: #c70c0c;
+  font-family: 'Dela Gothic One', sans-serif;
+  
+  /* 縦長に変形させる設定 */
+  display: inline-block; /* transformを有効にするために必要 */
+  transform: scaleY(1.3); /* 縦方向に1.3倍引き伸ばす */
+  transform-origin: center;
+}
 
   .sub-title {
     font-size: 0.80rem;
