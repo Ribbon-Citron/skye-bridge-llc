@@ -61,7 +61,7 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
       <br />
       <b>SKYE-BRIDGE-LLC</b><br />
       〒904-2225 沖縄県うるま市字喜屋武6-3<br />
-      📞098-989-5957<br />
+      📞<a href="tel:0989895957" class="phone-link">098-989-5957</a><br />
       🕙10:00〜19:00  ㊡日<br />
       <hr />
 
@@ -178,7 +178,7 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
   /* タイトル・テキストスタイル */
   /* -------------------------------------------------- */
   .site-title {
-    font-size: 1.74rem;
+    font-size: 1.72rem;
     color: #c70c0c;
     font-family: 'Dela Gothic One', sans-serif;
   }
@@ -266,4 +266,15 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
     border-color: #444444;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
+
+  /* 電話番号リンクのスタイル */
+.phone-link {
+  color: inherit; /* 周りの文字色と同じにする（ライト/ダークモード対応） */
+  text-decoration: none; /* 下線を消す */
+}
+
+.phone-link:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
 </style>
