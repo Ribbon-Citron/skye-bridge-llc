@@ -163,6 +163,24 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
 </html>
 
 <style is:global>
+
+
+/* タイトルの基本設定（スマホ向け：小さめ） */
+.site-title {
+  font-size: 1.4rem; /* スマホ時のサイズ（お好みで調整） */
+  color: #080350;
+  font-family: 'Dela Gothic One', sans-serif;
+}
+
+/* PC向け設定（画面幅が 601px 以上のとき：大きめ） */
+@media (min-width: 601px) {
+  .site-title {
+    font-size: 2.4rem; /* PC時のサイズ（お好みで調整） */
+  }
+}
+
+
+
   /* 基本（ライトモード）の設定 */
   body {
     background-color: #f0f0f3;
@@ -308,18 +326,5 @@ const whatisnew = "2026/08/25 弊社ウエブサイトを公開";
     min-height: 100vh;
   }
 
-/* タイトルの基本設定（スマホ向け：小さめ） */
-.site-title {
-  font-size: 1.4rem; /* スマホ時のサイズ（お好みで調整） */
-  color: #080350;
-  font-family: 'Dela Gothic One', sans-serif;
-}
-
-/* PC向け設定（画面幅が 601px 以上のとき：大きめ） */
-@media (min-width: 601px) {
-  .site-title {
-    font-size: 2.4rem; /* PC時のサイズ（お好みで調整） */
-  }
-}
 
 </style>
